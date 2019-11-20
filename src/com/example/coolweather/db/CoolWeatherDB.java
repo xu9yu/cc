@@ -14,18 +14,15 @@ import android.database.sqlite.SQLiteDatabase;
 
 public class CoolWeatherDB {
 
-	/**
-	 * 数据库名
-	 */
+	//定义 数据库名
 	public static final String DB_NAME = "cool_weather";
 
-	/**
-	 * 数据库版本
-	 */
+	//定义数据库版本号
+	 
 	public static final int VERSION = 1;
-
+	//定义类对象
 	private static CoolWeatherDB coolWeatherDB;
-
+    //定义数据库对象
 	private SQLiteDatabase db;
 
 	/**
@@ -74,6 +71,7 @@ public class CoolWeatherDB {
 						.getColumnIndex("province_name")));
 				province.setProvinceCode(cursor.getString(cursor
 						.getColumnIndex("province_code")));
+				//Log.i("FXC","从数据库读取全国所有的省份信息"+province.getProvinceName ());
 				list.add(province);
 			} while (cursor.moveToNext());
 		}
@@ -148,6 +146,7 @@ public class CoolWeatherDB {
 			} while (cursor.moveToNext());
 		}
 		return list;
+		//删除城市数据
 	}
 
 }
